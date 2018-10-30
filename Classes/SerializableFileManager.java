@@ -3,19 +3,28 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
+import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 
 public class SerializableFileManager {
 	private ObjectInputStream input;
 	private ObjectOutputStream output;
+	private ArrayList<Conta> contas;
 
 	public SerializableFileManager() {
 		File file = new File("contas.ser");
+		contas = new ArrayList<Conta>();
 		if (!file.exists()) {
 			openOutputFile();
 			closeOutputFile();
+		} else {
+			openInputFile();
+			contas = readInput();
+			closeInputFile();
 		}
 	}
 
@@ -28,17 +37,14 @@ public class SerializableFileManager {
 	}
 
 	public ArrayList<Conta> readInput() {
-		ArrayList<Conta> contas = new ArrayList<Conta>();
 		try {
-			while (true) {
-				contas.add((Conta) input.readObject());
-			}
-		} catch (EOFException endOfFileException) {
+			return (ArrayList<Conta>) input.readObject();
+		} catch (EOFException e) {
 			return contas;
 		} catch (ClassNotFoundException classNotFoundException) {
 			System.err.println("Unable to create object.");
 		} catch (IOException ioException) {
-			System.err.println("Error during reading from file.");
+			System.err.println("Error reading from accounts file.");
 		}
 
 		return contas;
@@ -64,9 +70,9 @@ public class SerializableFileManager {
 	}
 
 	public void writeToFile(Conta conta) {
-		openInputFile();
-		ArrayList<Conta> contas = readInput();
-		closeInputFile();
+		// openInputFile();
+		// contas = readInput();
+		// closeInputFile();
 		contas.add(conta);
 		try {
 			output.writeObject(contas);
@@ -85,5 +91,4 @@ public class SerializableFileManager {
 			System.exit(1);
 		}
 	}
-
 }
