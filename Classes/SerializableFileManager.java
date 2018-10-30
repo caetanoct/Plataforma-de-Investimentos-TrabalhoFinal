@@ -12,19 +12,18 @@ public class SerializableFileManager {
 	private ObjectOutputStream output;
 
 	public SerializableFileManager() {
-	}
-
-	public void openInputFile() {
 		File file = new File("contas.ser");
 		if (!file.exists()) {
 			openOutputFile();
 			closeOutputFile();
-		} else {
-			try {
-				input = new ObjectInputStream(new FileInputStream("contas.ser"));
-			} catch (IOException e) {
-				System.err.println("Error opening accounts file");
-			}
+		}
+	}
+
+	public void openInputFile() {
+		try {
+			input = new ObjectInputStream(new FileInputStream("contas.ser"));
+		} catch (IOException e) {
+			System.err.println("Error opening accounts file");
 		}
 	}
 
