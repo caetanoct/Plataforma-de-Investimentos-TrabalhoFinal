@@ -70,9 +70,6 @@ public class SerializableFileManager {
 	}
 
 	public void writeToFile(Conta conta) {
-		// openInputFile();
-		// contas = readInput();
-		// closeInputFile();
 		contas.add(conta);
 		try {
 			output.writeObject(contas);
