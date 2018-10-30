@@ -1,18 +1,13 @@
 
 public class TDPR extends Investimento {
-	
-	private int anoVencimento;
-	
-	public TDPR() {
-		this.setRentabilidadeAA(10.1);
-		this.setTaxaAdm(1.5);
-		
+	private String nome = "Tesouro direto pré-fixado";
+	private static final double rentabilidadeAA = 10.1;
+	private static final double taxaAdm = 1.5;
+	public String getNome() {
+		return nome;
 	}
-	
-	public void setAnoVencimento(int anoVencimento) {
-		this.anoVencimento = anoVencimento;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public int getAnoVencimento() {
-		return anoVencimento;
-	}
+
 }

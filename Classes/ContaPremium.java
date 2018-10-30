@@ -1,29 +1,25 @@
 import java.util.ArrayList;
 
-public class ContaPremium implements Conta {
+public class ContaPremium extends Conta implements Carteira{
 	
 	private double saldo;
 	private String usuario;
 	private String senha;
 	private ArrayList<Investimento> investimentos;
 	public static final boolean pagaTaxa = false;
-	//Métodos da interface:
-	@Override
-	public void creditar(double valor) {
-		// TODO Auto-generated method stub
-		
+	
+	public ContaPremium(double saldo, String usuario, String senha) {
+		this.saldo = saldo;
+		this.usuario = usuario;
+		this.senha = senha;
 	}
-
 	@Override
-	public void debitar(double valor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void efetuarInvest(double valor, Investimento tipoInvest) {
-		// TODO Auto-generated method stub
-		
+	public double getValorCarteira() {
+		double valor = saldo;
+		for(Investimento i: investimentos) {
+			valor = valor + i.getValorInvestimento();
+		}
+		return valor;
 	}
 
 }

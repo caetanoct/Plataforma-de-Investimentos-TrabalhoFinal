@@ -1,20 +1,29 @@
 
 public abstract class Investimento {
-	private double rentabilidadeAA;
-	private double taxaAdm;
-	
+	private String nome;
+	private static final double rentabilidadeAA = 0;
+	private static final double taxaAdm = 0;
+	private double valorInvestimento;
 	
 	public double getRentabilidadeAA() {
 		return rentabilidadeAA;
 	}
-	public void setRentabilidadeAA(double rentabilidadeAA) {
-		this.rentabilidadeAA = rentabilidadeAA;
-	}
+
 	public double getTaxaAdm() {
 		return taxaAdm;
 	}
-	public void setTaxaAdm(double taxaAdm) {
-		this.taxaAdm = taxaAdm;
+	
+	public double getValorInvestimento() {
+		return valorInvestimento;
+	}
+	public void setValorInvestimento(double valorInvestimento) {
+		this.valorInvestimento = valorInvestimento;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }
