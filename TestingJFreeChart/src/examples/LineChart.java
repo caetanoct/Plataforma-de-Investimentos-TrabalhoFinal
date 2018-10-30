@@ -24,7 +24,7 @@ public class LineChart extends ApplicationFrame {
 	      chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
 	      setContentPane( chartPanel );
 		
-	} //
+	} 
 	
 	private DefaultCategoryDataset createDataset() {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();

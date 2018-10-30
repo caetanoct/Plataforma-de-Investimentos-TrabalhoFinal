@@ -4,15 +4,15 @@ public class Conta {
 
 	private double taxaPrefix;
 	private double valorInvest;
-	private int meses;
+	private int anos;
 	
 	public Conta() {
 		
 	}
 	
-	public Conta(int meses, double taxa, double valorInvest) {
+	public Conta(int anos, double taxa, double valorInvest) {
 		
-		this.meses = meses;
+		this.anos = anos;
 		this.taxaPrefix = taxa;
 		this.valorInvest = valorInvest;
 	}
@@ -34,12 +34,12 @@ public class Conta {
 		this.valorInvest = valorInvest;
 	}
 
-	public int getMeses() {
-		return meses;
+	public int getAnos() {
+		return anos;
 	}
 
-	public void setMeses(int meses) {
-		this.meses = meses;
+	public void setAnos(int anos) {
+		this.anos = anos;
 	};
 	
 	
